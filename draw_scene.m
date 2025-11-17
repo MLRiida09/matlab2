@@ -21,8 +21,5 @@ scatter3(target(1), target(2), target(3), 200, 'g', 'filled', 'MarkerEdgeColor',
 % رسم السيارة
 draw_simple_car(x, scale);
 
-% عرض المعلومات
-text(-25, -25, 12, sprintf('Time: %.1f s\nTarget: %d/%d\nPos: [%.1f, %.1f, %.1f]', ...
-    t, target_idx, total_targets, x(1), x(2), x(3)), ...
-    'BackgroundColor', 'white', 'EdgeColor', 'black', 'FontSize', 10, 'FontWeight', 'bold');
+
 end

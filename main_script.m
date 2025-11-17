@@ -1,11 +1,9 @@
 % ========================================
-%     السكريبت الرئيسي - main_script.m
+%      main_script.m
 % ========================================
-% يستدعي الدوال المنفصلة
 
 clear; clc; close all;
 
-% ========== إعدادات المحاكاة ==========
 path_pts = [-20  20  20 -20 -20;
             -20 -20  20  20 -20;
               0   5  10   5   0];
@@ -21,8 +19,8 @@ tolerance = 3.0;
 current_target = 1;
 
 % معاملات التحكم
-Kp_theta = 4.0;    Kd_theta = 1.5;  % PD للزاوية
-Kp_z = 1.2;        Ki_z = 0.4;      Kd_z = 0.3;  % PID للارتفاع
+Kp_theta = 4.0;    Kd_theta = 1.5;  % PD for theta
+Kp_z = 1.2;        Ki_z = 0.4;      Kd_z = 0.3;  % PID hight z
 
 % متغيرات المتحكمات
 prev_theta_err = 0;
@@ -43,7 +41,7 @@ for t = 0:dt:T
     if norm(x(1:3) - target) < tolerance
         current_target = current_target + 1;
         if current_target > size(path_pts, 2)
-            title('✓ وصلنا للنهاية!');
+            title('end of road !');
             break;
         end
         target = path_pts(:, current_target);
@@ -59,4 +57,3 @@ for t = 0:dt:T
     drawnow;
 end
 
-disp('✓ انتهت المحاكاة بنجاح!');

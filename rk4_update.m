@@ -2,7 +2,7 @@
 % 4. rk4_update.m
 % ========================================
 function x_new = rk4_update(x, v, omega, vz, dt)
-% تكامل Runge-Kutta من الدرجة الرابعة (RK4)
+% Runge-Kutta (Rk4)
 
 % مدخلات التحكم
 u = [v; omega; vz];
