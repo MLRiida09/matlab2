@@ -3,6 +3,11 @@
 % ========================================
 function [vz, int, prev_dz] = pid_controller(z, z_target, Kp, Ki, Kd, int, prev_dz, dt)
 % متحكم PID للتحكم في الارتفاع (Z)
+ 
+% Add anti-windup to PID controller:
+int = max(min(int, 10), -10);  % Add before computing vz
+
+
 
 % حساب الخطأ
 dz = z_target - z;
